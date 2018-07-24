@@ -1,0 +1,27 @@
+<%# app/views/services/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info services %>
+  </div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Country</th>
+      <th>Cost</th>
+    </tr>
+    <% services.each do |service| %>
+      <tr>
+        <td><%= link_to(service.name, service_path(service)) %></td>
+        <td>$<%= service.price %></td>
+        <td><%= service.country %></td>
+        <td>$<%= service.cost %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= will_paginate services %>
+</div>
+
